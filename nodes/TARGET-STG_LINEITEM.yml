@@ -241,17 +241,52 @@ operation:
               - columnCounter: be4287ef-8f71-4090-8d99-dfbd2223a665
                 stepCounter: 41e61fb8-691a-4c31-923d-d69e70ca71ed
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 437af167-714c-4113-8618-a3c21a78ab58
+          stepCounter: 4e1f485a-3df4-44c0-9b67-0e5c645db992
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PS_AVAILQTY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68872539-cc0e-4e69-ae07-ecae062acd92
+                stepCounter: 077b193c-2577-4a7f-834a-f3dbb4789a58
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1bd9a154-b7a3-4081-a54c-0aadf537a5d2
+          stepCounter: 4e1f485a-3df4-44c0-9b67-0e5c645db992
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: PS_SUPPLYCOST
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb9e738c-9ca1-4672-8b51-b2c0aa7839e1
+                stepCounter: 077b193c-2577-4a7f-834a-f3dbb4789a58
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          LINEITEM: 41e61fb8-691a-4c31-923d-d69e70ca71ed
+          PARTSUPP: 077b193c-2577-4a7f-834a-f3dbb4789a58
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
             nodeName: LINEITEM
+          - locationName: SRC
+            nodeName: PARTSUPP
         join:
-          joinCondition: FROM {{ ref('SRC', 'LINEITEM') }} "LINEITEM"
+          joinCondition: |-
+            FROM {{ ref('SRC', 'LINEITEM') }} "LINEITEM"
+            INNER JOIN {{ ref('SRC', 'PARTSUPP') }} "PARTSUPP"
+            ON "LINEITEM"."L_PARTKEY" = "PARTSUPP"."PS_PARTKEY"
         name: STG_LINEITEM
         noLinkRefs: []
   name: STG_LINEITEM

@@ -415,6 +415,40 @@ operation:
                 stepCounter: "0"
             transform: DATEDIFF('DAY',"STG_ORDERS"."O_ORDERDATE","STG_LINEITEM"."L_SHIPDATE")
         systemColumnType: None
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d76a783-6295-4694-81df-977bd2a90829
+          stepCounter: 4ed85997-aa85-4134-b858-83757ef26e3c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PS_AVAILQTY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 437af167-714c-4113-8618-a3c21a78ab58
+                stepCounter: 4e1f485a-3df4-44c0-9b67-0e5c645db992
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27acbcdc-bdca-42b8-8ab7-0916ac527324
+          stepCounter: 4ed85997-aa85-4134-b858-83757ef26e3c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: PS_SUPPLYCOST
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1bd9a154-b7a3-4081-a54c-0aadf537a5d2
+                stepCounter: 4e1f485a-3df4-44c0-9b67-0e5c645db992
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
